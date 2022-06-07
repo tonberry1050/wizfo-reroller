@@ -1,0 +1,1 @@
+export const WIZ_WINDOW_NAME = 'WizardryFoV2';

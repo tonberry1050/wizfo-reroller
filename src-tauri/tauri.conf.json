@@ -3,6 +3,7 @@
   "build": {
     "beforeBuildCommand": "npm run build",
     "beforeDevCommand": "npm run start",
+    "withGlobalTauri": true,
     "devPath": "http://localhost:3000",
     "distDir": "../build"
   },
@@ -16,7 +17,7 @@
     },
     "bundle": {
       "active": true,
-      "category": "DeveloperTool",
+      "category": "Utility",
       "copyright": "",
       "deb": {
         "depends": []
@@ -57,7 +58,7 @@
       {
         "fullscreen": false,
         "height": 600,
-        "resizable": true,
+        "resizable": false,
         "title": "WizFO Reroller",
         "width": 800
       }
