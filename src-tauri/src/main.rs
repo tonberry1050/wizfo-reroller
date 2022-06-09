@@ -48,13 +48,13 @@ fn combination_key_handler(key_codes: Vec<usize>) {
     for key_code in key_codes.iter() {
         println!("press '{}'", key_code);
         unsafe {
-            win_command::key_enter(u16::try_from(*key_code).unwrap());
+            win_command::key_down(u16::try_from(*key_code).unwrap());
         }
     };
     for key_code in key_codes.iter().rev() {
         println!("release '{}'", key_code);
         unsafe {
-            win_command::key_enter(u16::try_from(*key_code).unwrap());
+            win_command::key_up(u16::try_from(*key_code).unwrap());
         }
     };
 
