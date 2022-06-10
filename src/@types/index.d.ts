@@ -1,4 +1,10 @@
+import { codes } from 'keycode';
 import { invoke } from '@tauri-apps/api';
+
+declare module '*.svg' {
+  const content: string;
+  export default content;
+}
 
 declare global {
   interface Window {
@@ -9,7 +15,9 @@ declare global {
 }
 
 export type TauriApiHandlerName = [
-  "focus_window_handler",
-  "enter_key_handler",
-  "combination_key_handler",
+  'focus_window_handler',
+  'enter_key_handler',
+  'combination_key_handler',
 ][number];
+
+export type CodeMapKey = keyof typeof codes;

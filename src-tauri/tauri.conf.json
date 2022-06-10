@@ -58,6 +58,8 @@
       {
         "fullscreen": false,
         "height": 600,
+        "alwaysOnTop": true,
+        "decorations": true,
         "resizable": false,
         "title": "WizFO Reroller",
         "width": 800

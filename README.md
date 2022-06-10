@@ -3,7 +3,7 @@
 ## Description
 
 Wizardry ５つの試練用にリロールを行うスクリプト、Electronより軽量なTauriを使ってWindowsで動作するGUI操作画面を作ってみたかった。
-ビルド済みのzipファイルをダウンロードしてもらえばwindows11では動作することを確認してあります。
+ビルド済みのexeファイルをダウンロードしてもらえばwindows11では動作することを確認してあります。
 何かライセンス的な問題がありましたらご連絡ください。また動作の保証は致しません。
 
 ## How to use
@@ -22,14 +22,10 @@ Wizardry ５つの試練用にリロールを行うスクリプト、Electronよ
 
 以下はソースコードを取得した場合
 
-1. Tauriアプリのwatchビルド
+1. watchビルド
 
-    `npm run build`で全部ビルドする、Electron部分の変更があればここからやり直す
+    `npm run watch`で監視してreactのビルドとtauriのビルドを起動する
 
-1. Reactページ部分のwatchビルド
+1. パッケージ化
 
-    `npm run watch`でどこかで実行しておく。VSCodeならタスクの実行からもできる: `npm: watch`
-
-1. Electronの起動テスト
-
-    `npm start`でElectronウィンドウを起動する。再起動するとコードの変更が毎回反映される。
+    `npm run package`でtauriのパッケージコマンドを実行する

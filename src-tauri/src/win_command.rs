@@ -13,10 +13,10 @@ struct WinMem {
     window_name: String,
 }
 
-pub unsafe fn focus_window (window_name: String) {
+pub unsafe fn focus_window (window_name: String) -> BOOL {
     // focus wiz window
     let win_mem = WinMem { window_name: window_name.into() };
-    EnumWindows(Some(enum_proc), (&win_mem as *const WinMem) as LPARAM);
+    EnumWindows(Some(enum_proc), (&win_mem as *const WinMem) as LPARAM)
 }
 
 pub unsafe fn key_enter(key_code: u16) {

@@ -17,12 +17,15 @@ fn main() {
 }
 
 #[tauri::command]
-fn focus_window_handler(window_name: String) {
+fn focus_window_handler(window_name: String) -> i32 {
     println!("requested 'focus_window' for '{}'", window_name);
     unsafe {
-        win_command::focus_window(window_name);
+        let return_code = win_command::focus_window(window_name);
+        if return_code != 0 {
+            print!("failed focus, maybe named window does not exist");
+        }
+        return_code
     }
-    print!("focused");
 }
 
 /**
