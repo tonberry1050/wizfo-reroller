@@ -1,13 +1,13 @@
-import React, { BaseSyntheticEvent, useEffect, useState } from 'react';
+import { BaseSyntheticEvent, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { makeOption } from '../../utils/viewService';
-import { alimentOption, jobOption, jobTable, raceOption, sexOption } from '../../utils/constants';
+import { makeOption } from 'utils/viewService';
+import { alimentOption, jobOption, jobTable, raceOption, sexOption } from 'utils/constants';
 import { Aliment, CharacterType } from '../../@types/wiz5oReRoller';
 
 import './characterForm.css';
-import diceImage from '../../images/casino_FILL0_wght400_GRAD200_opsz24.svg';
-import { reroll } from '../../utils/rerollService';
+import diceImage from 'images/casino_FILL0_wght400_GRAD200_opsz24.svg';
+import { reroll } from 'utils/rerollService';
 
 export default function CharacterForm() {
   const [isRunning, setRunning] = useState<boolean>(false);
@@ -36,14 +36,14 @@ export default function CharacterForm() {
   const alimentValidate = (alimentValue: string) => isMatchedAliment(alimentValue as Aliment) || '職業と性格が一致していません';
 
   const onSubmit = async (data: CharacterType, event?: BaseSyntheticEvent) => {
-    event!.preventDefault();
+    event?.preventDefault();
     setRunning(true);
     await reroll(data);
     console.log('finished');
     setRunning(false);
   };
-  const onError = (errors: any, event?: BaseSyntheticEvent) => {
-    event!.preventDefault();
+  const onError = (errors: unknown, event?: BaseSyntheticEvent) => {
+    event?.preventDefault();
     console.error(errors);
   };
 
