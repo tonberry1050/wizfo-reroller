@@ -14,6 +14,16 @@ export const setBaseWait = (ms = 100) => {
   return baseWait = ms;
 };
 
+let networkWait = ((defaultWait: number) => {
+  const mem = Number(localStorage.getItem('NETWORK_WAIT') ?? defaultWait);
+  return Number.isInteger(mem) ? mem : defaultWait;
+})(2);
+export const getNetworkWait = () => { return networkWait; };
+export const setNetworkWait = (scale = 3) => {
+  localStorage.setItem('NETWORK_WAIT', `${scale}`);
+  return networkWait = scale;
+};
+
 const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms));
 const wait = (scale = 1) => sleep(baseWait * scale);
 
@@ -43,10 +53,10 @@ export async function reroll(character: CharacterType) {
     await focusApi(WIZ_WINDOW_NAME);
     await wait();
     await combinationKeyApi([codes['ctrl'], codes['f1']]);
-    await wait(5);
+    await wait(2);
     await enterKeyApi(codes['enter']); // after reset, cursor focuses 1st option "GAME START"
-    await wait(5);
-    await inputKeys(['e', 't', 'm'], 1);
+    await sleep(baseWait * 4 + getNetworkWait() * 1000);
+    await inputKeys(['e', 't', 'm']);
     const characterName = character.name;
     const characterJob = codes[`${jobIndex}` as CodeMapKey];
     const characterRace = codes[`${raceIndex}` as CodeMapKey];
