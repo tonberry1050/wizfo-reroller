@@ -37,7 +37,7 @@ pub unsafe fn key_up(key_code: u16) {
 unsafe fn create_input(key_code: u16, flags: u32) -> INPUT {
     let mut input = mem::zeroed::<INPUT>();
     input.type_ = INPUT_KEYBOARD;
-    let mut ki = input.u.ki_mut();
+    let ki = input.u.ki_mut();
     ki.wVk = key_code;
     ki.dwFlags = flags;
     input
