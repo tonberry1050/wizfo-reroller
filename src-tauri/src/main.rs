@@ -40,7 +40,7 @@ fn enter_key_handler(key_code: usize) {
     unsafe {
         win_command::key_enter(u16::try_from(key_code).unwrap());
     }
-    print!("entered {}", key_code);
+    print!("entered {} / ", key_code);
 }
 
 /**

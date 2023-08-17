@@ -19,8 +19,8 @@ const TabItem: FC<{
 
 export const Layout: FC = () => {
   return (
-    <div className="bg-white pb-3 sm:pb-4 lg:pb-6">
-      <header className="border-b mb-2">
+    <div className="bg-white" style={{minHeight: '100vh', display: 'flex', flexDirection: 'column'}}>
+      <header className="border-b mb-2" style={{position: 'sticky', top: 0}}>
         <div className="max-w-screen-2xl flex justify-between items-center px-4 md:px-8 mx-auto">
           <a href="#" className="inline-flex items-center text-black-800 text-2xl md:text-3xl gap-2.5" aria-label="logo">
             <span className="inline-flex items-baseline">
@@ -34,7 +34,7 @@ export const Layout: FC = () => {
           <TabItem pageName="Config" href="/config"></TabItem>
         </ul>
       </header>
-      <section className="p-6">
+      <section className="p-6" style={{flexGrow: 1}}>
         <Outlet />
       </section>
     </div>

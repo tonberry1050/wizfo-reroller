@@ -1,13 +1,10 @@
+import diceImage from 'images/casino_FILL0_wght400_GRAD200_opsz24.svg';
 import { BaseSyntheticEvent, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-
-import { makeOption } from 'utils/viewService';
 import { alimentOption, jobOption, jobTable, raceOption, sexOption } from 'utils/constants';
-import { Aliment, CharacterType } from '../../@types/wiz5oReRoller';
-
-import './characterForm.css';
-import diceImage from 'images/casino_FILL0_wght400_GRAD200_opsz24.svg';
 import { reroll } from 'utils/rerollService';
+import { makeOption } from 'utils/viewService';
+import { Aliment, CharacterType } from '../../@types/wiz5oReRoller';
 
 export default function CharacterForm() {
   const [isRunning, setRunning] = useState<boolean>(false);
@@ -157,7 +154,7 @@ export default function CharacterForm() {
           </div>
         </div>
       </div>
-      <div className="flex items-center py-2 mt-8">
+      <div className="flex items-center py-2">
         <span className="flex-grow" />
         <div className="flex-grow-0 items-center text-center py-2">
           <button type="submit" disabled={isRunning}
