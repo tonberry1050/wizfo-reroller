@@ -41,11 +41,11 @@ export async function reroll(character: CharacterType) {
   const sexIndex = 1 + sexOption.findIndex((o) => o.value === character.sex);
   try {
     await focusApi(WIZ_WINDOW_NAME);
-    await wait(3);
+    await wait();
     await combinationKeyApi([codes['ctrl'], codes['f1']]);
-    await wait(6);
+    await wait(5);
     await enterKeyApi(codes['enter']); // after reset, cursor focuses 1st option "GAME START"
-    await wait(6);
+    await wait(5);
     await inputKeys(['e', 't', 'm'], 1);
     const characterName = character.name;
     const characterJob = codes[`${jobIndex}` as CodeMapKey];
